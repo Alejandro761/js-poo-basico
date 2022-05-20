@@ -39,3 +39,25 @@ const juanita = new Student(
 console.log(juanita);
 juanita.aprobarCurso('Curso de C');
 console.log(juanita);
+
+class Studen2 {
+    // constructor(name, age, cursosAprobados) {
+    //esta es otra forma de hacer el constructor: roro
+    constructor({name, cursosAprobados = [] /* que por defecto sea un array */, age}) {
+        this.name = name;
+        this.age = age;
+        this.cursosAprobados = cursosAprobados;
+    }
+
+    aprobarCurso(curso) {
+        this.cursosAprobados.push(curso);
+    }
+}
+
+// const puig = new Studen2('Puig', 19, ['Curso de Electromécanica', 'Curso de Calculo Diferencial']);
+//llamar al constructor roro, no importa el orden
+const puig = new Studen2({name : 'Puig', age: 19, cursosAprobados: ['Curso de Electromécanica', 'Curso de Calculo Diferencial']});
+
+console.log(puig);
+puig.aprobarCurso('Cálculo Integral');
+console.log(puig);
