@@ -20,19 +20,34 @@ class LearningPaths {
 
 class Course {
     constructor({name, classes = []}){
-        this.name = name;
+        this._name = name; //el guion bajo indica que nadie llame a ese atributo
         this.classes = classes;
+    }
+
+    get name() {
+        return this._name; //el guión también indica que es 'privado'
+    }
+
+    set name(name){
+        if (name === 'Curso Malito de Programación Básica') {
+            console.error('Web... no');
+          } else {
+            this._name = name;
+          }
     }
 }
 
-class Class {
+class PlatziClass {
     constructor({name, duration})
 }
 
 const cursoProgBasica = new Course({
     name: "Curso de Programación básica",
     classes: ''
-})
+});
+
+cursoProgBasica.name;
+cursoProgBasica.name = 'sí';
 
 const cursoHTMLCSS = new Course({
     name: "Curso de HTML y CSS",
